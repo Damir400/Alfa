@@ -23,6 +23,7 @@ public class GifController {
     @GetMapping("getgif")
     public ResponseEntity<Map> gifRates(){
         ResponseEntity<Map> result = gifClient.getRandomGif();
+
         return result;
     }
 }
