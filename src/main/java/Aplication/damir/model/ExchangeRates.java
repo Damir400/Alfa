@@ -2,11 +2,7 @@ package com.damir.model;
 
 import java.util.Map;
 
-/**
- * Модель для работы с курсами валют от openexchangerates.org
- * Пример json`а:
- * https://openexchangerates.org/api/historical/2020-12-21.json?app_id=3b8c120bb3624e3eb59a8002fdc0c03e
- */
+
 public class ExchangeRates {
 
     private String disclaimer;

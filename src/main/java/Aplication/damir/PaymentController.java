@@ -23,24 +23,24 @@ public class PaymentController {
     @Autowired
     private final ServiceCurrency serviceCurrency = new ServiceCurrency();
 
-    @GetMapping("/{currency}")
-    public String showStatus(@PathVariable String currency) {
-        final RestTemplate restTemplate = new RestTemplate();
-        ObjectDTO objectDTOToday =  restTemplate.getForObject(EXCHANGE_URL, ObjectDTO.class);
-        Map<String, Double> mapToday = objectDTOToday.getRates();
-
-        final RestTemplate restTemplate2 = new RestTemplate();
-        ObjectDTO objectDTOYesterday =  restTemplate2.getForObject(EXCHANGE_URL_2, ObjectDTO.class);
-        Map<String, Double> mapYesterday = objectDTOYesterday.getRates();
-        final RestTemplate restTemplate3 = new RestTemplate();
-        if(serviceCurrency.isTodayRateBiggerThanHistorical(mapToday.get(currency), mapYesterday.get(currency))){
-            System.out.println("rich");
-            return restTemplate3.getForObject(GIF_URL_RICH, String.class);
-        } else {
-            System.out.println("broke");
-            return restTemplate3.getForObject(GIF_URL_BROKE, String.class);
-        }
-    }
+//    @GetMapping("/{currency}")
+//    public String showStatus(@PathVariable String currency) {
+//        final RestTemplate restTemplate = new RestTemplate();
+//        ObjectDTO objectDTOToday =  restTemplate.getForObject(EXCHANGE_URL, ObjectDTO.class);
+//        Map<String, Double> mapToday = objectDTOToday.getRates();
+//
+//        final RestTemplate restTemplate2 = new RestTemplate();
+//        ObjectDTO objectDTOYesterday =  restTemplate2.getForObject(EXCHANGE_URL_2, ObjectDTO.class);
+//        Map<String, Double> mapYesterday = objectDTOYesterday.getRates();
+//        final RestTemplate restTemplate3 = new RestTemplate();
+//        if(serviceCurrency.isTodayRateBiggerThanHistorical(mapToday.get(currency), mapYesterday.get(currency))){
+//            System.out.println("rich");
+//            return restTemplate3.getForObject(GIF_URL_RICH, String.class);
+//        } else {
+//            System.out.println("broke");
+//            return restTemplate3.getForObject(GIF_URL_BROKE, String.class);
+//        }
+//    }
 
 //    @PostMapping("/payq1")
 //    //@GetMapping("/pay")

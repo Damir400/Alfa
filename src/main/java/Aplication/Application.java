@@ -2,7 +2,12 @@ package com.damir;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-@SpringBootApplication(scanBasePackages = "com")
+import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.context.annotation.ComponentScan;
+
+@SpringBootApplication()  //scanBasePackages = "main"
+@EnableFeignClients
+@ComponentScan({"java"})
 public class Application {
 
     public static void main(String[] args) {
