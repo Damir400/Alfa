@@ -1,11 +1,10 @@
-package Aplication.damir;
+package Aplication.damir.service;
 
-import Aplication.damir.model.ExchangeRates;
+import Aplication.damir.Client.GifClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.Map;
@@ -27,12 +26,12 @@ public class GifService {
     }
 
 
-    //@GetMapping("/getgif/{isRich}")
     public ResponseEntity<Map> gifRates(@PathVariable(value = "isRich") Boolean isRich){
 
         ResponseEntity<Map> result;
         if(isRich){
             result = gifClient.getRandomGif(apiKey, tagRich);
+
         }
         else {
             result = gifClient.getRandomGif(apiKey,tagBroke);

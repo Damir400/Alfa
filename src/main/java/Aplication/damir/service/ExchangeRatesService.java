@@ -1,15 +1,12 @@
-package Aplication.damir;
+package Aplication.damir.service;
 
+import Aplication.damir.Client.ApiClient;
 import Aplication.damir.model.ExchangeRates;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 @Service
 public class ExchangeRatesService {

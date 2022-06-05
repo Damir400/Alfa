@@ -1,4 +1,4 @@
-package Aplication.damir;
+package Aplication.damir.Client;
 
 import Aplication.damir.model.ExchangeRates;
 import org.springframework.cloud.openfeign.FeignClient;
