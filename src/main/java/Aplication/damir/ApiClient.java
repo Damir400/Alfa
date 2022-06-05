@@ -28,7 +28,7 @@ public interface ApiClient {
 
     @GetMapping("/historical/{date}.json")
     ExchangeRates getHistoricalRates(
-            @PathVariable String date,
+            @PathVariable (value = "date") String date,
             @RequestParam("app_id") String appId
     );
 
