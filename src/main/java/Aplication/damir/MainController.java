@@ -1,7 +1,8 @@
 package Aplication.damir;
 
-import Aplication.damir.model.ExchangeRates;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,19 +10,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Map;
 
+
 @RestController
-@RequestMapping("gg")
-//@RequestMapping("https://openexchangerates.org/api/getcodes")
-
-public class ExchangeRatesController {
-
+@RequestMapping("api")
+public class MainController {
+    private GifService gifService;
     private ExchangeRatesService exchangeRatesService;
-    private ApiClient apiClient;
 
-    @Autowired
-    public ExchangeRatesController(ExchangeRatesService exchangeRatesService, ApiClient apiClient) {
+    public MainController(GifService gifService, ExchangeRatesService exchangeRatesService) {
+        this.gifService = gifService;
         this.exchangeRatesService = exchangeRatesService;
-        this.apiClient = apiClient;
     }
 
     @GetMapping("/getcodes")
@@ -39,5 +37,12 @@ public class ExchangeRatesController {
     public Boolean getBool(@PathVariable(value = "coderates") String codeRates) {
         return exchangeRatesService.compareRatesResult(codeRates);
     }
+
+    @GetMapping("/getgif/{coderates}")
+    public ResponseEntity<Map> getRandomGif(@PathVariable(value = "coderates") String codeRates) {
+        return gifService.gifRates(exchangeRatesService.compareRatesResult(codeRates));
+    }
+
+
 
 }

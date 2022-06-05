@@ -5,6 +5,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+
 @Service
 public class ExchangeRatesService {
     private ApiClient apiClient;
@@ -19,10 +25,30 @@ public class ExchangeRatesService {
     }
 
     //public ExchangeRates getExchangeRates(){
-    public String getExchangeRates(){
+    public ExchangeRates getExchangeRates(){
         //return apiClient.getTodayRates(appId);
         exchangeRates = apiClient.getTodayRates(appId);
-        return exchangeRates.getBase();
+        return exchangeRates;
 
+    }
+
+    public ExchangeRates getExchangeRatesYesterday(){
+        //return apiClient.getTodayRates(appId);
+        exchangeRates = apiClient.getHistoricalRates(getYesterdayDate(),appId);
+        return exchangeRates;
+
+    }
+
+    public String getYesterdayDate()  {
+
+        LocalDate date = LocalDate.now().minusDays(4); // не забыть исправить на 1
+
+        return date.toString();
+    }
+
+    public boolean compareRatesResult(String rate){
+        Double todayRate = getExchangeRates().getRates().get(rate);
+        Double yesterdayRate = getExchangeRatesYesterday().getRates().get(rate);
+        return todayRate-yesterdayRate>0;
     }
 }
