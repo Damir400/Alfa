@@ -1,6 +1,6 @@
-package com.damir;
+package Aplication.damir;
 
-import com.damir.model.ObjectDTO;
+import Aplication.damir.model.ObjectDTO;
 import lombok.Getter;
 import lombok.Setter;
 

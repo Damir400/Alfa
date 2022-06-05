@@ -1,4 +1,6 @@
-import com.damir.model.ExchangeRates;
+package Aplication.damir;
+
+import Aplication.damir.model.ExchangeRates;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;

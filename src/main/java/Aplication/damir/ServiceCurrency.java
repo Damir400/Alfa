@@ -1,4 +1,4 @@
-package com.damir.service;
+package Aplication.damir;
 
 import lombok.NoArgsConstructor;
 import lombok.Value;

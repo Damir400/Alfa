@@ -1,4 +1,4 @@
-package com.damir.model;
+package Aplication.damir.model;
 
 import java.util.Map;
 

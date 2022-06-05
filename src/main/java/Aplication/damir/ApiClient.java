@@ -1,8 +1,8 @@
-import com.damir.model.ExchangeRates;
+package Aplication.damir;
+
+import Aplication.damir.model.ExchangeRates;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 
 @FeignClient(name = "jsonrates", url = "https://openexchangerates.org/api")
