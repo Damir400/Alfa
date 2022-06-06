@@ -2,7 +2,7 @@ package Aplication.damir.model;
 
 import java.util.Map;
 
-
+// Модель для работы с курсами валют
 public class ExchangeRates {
 
     private String disclaimer;
@@ -11,8 +11,7 @@ public class ExchangeRates {
     private String base;
     private Map<String, Double> rates;
 
-    public ExchangeRates() {
-    }
+    public ExchangeRates() {}
 
     public String getDisclaimer() {
         return disclaimer;

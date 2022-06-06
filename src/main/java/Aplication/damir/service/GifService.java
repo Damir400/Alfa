@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
-
 import java.util.Map;
 
 @Service
@@ -26,17 +25,14 @@ public class GifService {
     }
 
 
-    public ResponseEntity<Map> gifRates(@PathVariable(value = "isRich") Boolean isRich){
-
-        ResponseEntity<Map> result;
+    // Получаем ответ от Giphy.com в виде ResponseEntity<Map>
+    public ResponseEntity<Map> getRandomGif(@PathVariable(value = "isRich") Boolean isRich){
         if(isRich){
-            result = gifClient.getRandomGif(apiKey, tagRich);
-
+            return gifClient.getRandomGif(apiKey, tagRich);
         }
         else {
-            result = gifClient.getRandomGif(apiKey,tagBroke);
+            return gifClient.getRandomGif(apiKey, tagBroke);
         }
-        return result;
     }
 
 }
