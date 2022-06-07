@@ -34,3 +34,12 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+task copyJarToRoot {
+    doLast {
+        copy {
+            from './build/libs/AlfaTest-1.0-SNAPSHOT.jar'
+            into "./"
+        }
+    }
+}
