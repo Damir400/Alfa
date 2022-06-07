@@ -27,12 +27,17 @@ public class GifService {
 
     // Получаем ответ от Giphy.com в виде ResponseEntity<Map>
     public ResponseEntity<Map> getRandomGif(@PathVariable(value = "isRich") Boolean isRich){
+        ResponseEntity<Map> result;
         if(isRich){
-            return gifClient.getRandomGif(apiKey, tagRich);
+             result = gifClient.getRandomGif(apiKey, tagRich);
+             result.getBody().put("tag","rich");
         }
         else {
-            return gifClient.getRandomGif(apiKey, tagBroke);
+            result = gifClient.getRandomGif(apiKey, tagBroke);
+            result.getBody().put("tag","broke");
         }
+        return result;
     }
+
 
 }
