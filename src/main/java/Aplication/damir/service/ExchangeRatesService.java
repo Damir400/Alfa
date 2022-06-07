@@ -42,7 +42,7 @@ public class ExchangeRatesService {
         Double yesterdayRate = getExchangeRatesYesterday().getRates().get(rate);
         return todayRate-yesterdayRate>0;
     }
-
+    //Возвращает список кодов котировок
     public List<String> getRatesCodes(){
         return new ArrayList<String>(getExchangeRates().getRates().keySet());
     }
